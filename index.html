@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic PixiJS</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.2.0/pixi.min.js"></script>
+</head>
+<body>
+  <script>
+    // Create a Pixi application (ensure uppercase for PIXI)
+    let app = new PIXI.Application({
+      width: 400,
+      height: 300,
+      backgroundColor: 0xffffff // Set background color to white
+    });
+
+    // Add the canvas to the document body
+    document.body.appendChild(app.view);
+
+    // Create a rectangle with black border
+    const rectangle = new PIXI.Graphics();
+    rectangle.beginFill(0x000000); // Black color
+    rectangle.drawRect(100, 100, 50, 50); // Position and size
+
+    // Add the rectangle to the stage
+    app.stage.addChild(rectangle);
+
+    // Add click event listener
+    app.stage.interactive = true; // Enable interactivity
+    app.stage.on('click', onClick);
+
+    function onClick(event) {
+      console.log("You clicked the rectangle!");
+    }
+  </script>
+</body>
+</html>
